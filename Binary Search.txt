@@ -1,0 +1,17 @@
+#========BINARY SEARCH=======
+def binary_search(a, key):
+    a.sort()  # Sort the list
+    s = 0
+    e = len(a) - 1
+    while s <= e:
+        mid = (s + e) // 2
+        if a[mid] == key:
+            return mid
+        elif a[mid] > key:
+            e = mid - 1
+        else:
+            s = mid + 1
+    return -1
+
+a = [4, 67, 34, 9, 108, 45, 70, 58]
+print(binary_search(a, 34))
