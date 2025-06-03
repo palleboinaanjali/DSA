@@ -1,0 +1,14 @@
+#======SELECTION SORT ========
+def selection_sort(a):
+    for phase in range(len(a)-1):
+        min=phase
+        for i in range(phase+1,len(a)):
+            if a[i]<a[min]:
+                min=i
+        if min!=phase:
+                
+            a[min],a[phase]=a[phase],a[min]
+        
+    return a
+a=[3,5,53,34,64,72,1]
+print(selection_sort(a))
