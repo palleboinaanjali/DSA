@@ -1,0 +1,99 @@
+#======== inorder traversal=========
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=self.right=None
+def inorder_traversal(root):
+    if root is None:
+        return
+    inorder_traversal(root.left)
+    print(root.data)
+    inorder_traversal(root.right)
+root=Node(5)
+root.left=Node(6)
+root.right=Node(12)
+root.left.left=Node(10)
+root.left.right=Node(33)
+root.left.left.left=Node(56)
+root.right.right=Node(3)
+inorder_traversal(root)
+#======= preorder traversal========
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=self.right=None
+def inorder_traversal(root):
+    if root is None:
+        return
+    print(root.data)
+    inorder_traversal(root.left)
+    inorder_traversal(root.right)
+root=Node(5)
+root.left=Node(6)
+root.right=Node(12)
+root.left.left=Node(10)
+root.left.right=Node(33)
+root.left.left.left=Node(56)
+root.right.right=Node(3)
+inorder_traversal(root)
+#=======postorder traversal========
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=self.right=None
+def inorder_traversal(root):
+    if root is None:
+        return
+    inorder_traversal(root.left)
+    inorder_traversal(root.right)
+    print(root.data)
+root=Node(5)
+root.left=Node(6)
+root.right=Node(12)
+root.left.left=Node(10)
+root.left.right=Node(33)
+root.left.left.left=Node(56)
+root.right.right=Node(3)
+inorder_traversal(root)
+#========HEIGHT OF TREE========
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+class binary_tree:
+    def inorder_traversal(self,root):
+        if root is None:
+            return
+        self.inorder_traversal(root.left)
+        print(root.data)
+        self.inorder_traversal(root.right)
+    def preorder_traversal(self,root):
+        if root is None:
+            return
+        print(root.data,end=" ")
+        self.preorder_traversal(root.left)
+        self.preorder_traversal(root.right)
+    def postorder_traversal(self,root):
+        if root is None:
+            return
+        self.postorder_traversal(root.left)
+        self.postorder_traversal(root.right)
+        print(root.data)
+    def height(self,root):
+        if root is None:
+            return 0
+        l_count=1+self.height(root.left)
+        r_count=1+self.height(root.right)
+        return l_count if l_count > r_count else r_count
+root=Node(5)
+root.left=Node(6)
+root.right=Node(12)
+root.left.left=Node(10)
+root.left.right=Node(33)
+root.right.right=Node(3)
+root.left.left.left=Node(56)
+obj=binary_tree()
+obj.inorder_traversal(root)
+print()
+print(obj.height(root)-1)
